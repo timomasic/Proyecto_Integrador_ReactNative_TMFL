@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 import { View } from 'react-native';
-import { db, auth } from '../firebase/config'
+import { startClock } from 'react-native-reanimated';
+import { db, auth } from '../Firebase/config'
 
+
+import {NavigationContainer} from '@react-navigation/native';
+import  { createNativeStackNavigator} from '@react-navigation/native-stack';
+
+
+const Stack = createNativeStackNavigator();
 
 class MainNavigation extends Component {
     constructor(props){
@@ -12,6 +19,48 @@ class MainNavigation extends Component {
         }
     }
 
+//funcionalidades arrancadas  
+    login(mail, pass){
+        auth.signInWithEmailAndPassword(mail, pass)
+            .then(response => this.setState({
+                loggedIn:true
+            }))
+            .catch( error => console.log(error))
+
+    }
+ 
+    register(mail, pass, userName){
+        auth.createUserWithEmailAndPassword(mail, pass)
+            .then( responseRegister => {
+                console.log(responseRegister); 
+                db.collection('users').add({
+                            email: mail,
+                            userName: userName,
+                            createdAt: Date.now(),
+                        })
+                        .then( res => console.log(res))
+                        .catch(error => console.log(error) )
+
+                    })
+            .catch( error => {
+                console.log(error);
+                this.setState({
+                     registerError: error.message
+                })
+            })      
+    }
+    
+    logout(){
+        auth.signOut()
+            .then( response => this.setState({
+                loggedIn: false
+            }))
+            .catch( error => console.log(error))
+    }
+
+
+    
+    
     render() {
 
         return(
