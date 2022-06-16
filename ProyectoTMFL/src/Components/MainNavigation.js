@@ -80,11 +80,44 @@ class MainNavigation extends Component {
     render() {
 
         return(
-<View>
-    <text>
-        hola mundo!
-    </text>
-</View>
+<NavigationContainer>
+<Stack.Navigator>
+                {
+                    this.state.loggedIn ?
+                    <Stack.Group> 
+                        <Stack.Screen 
+                            name='Menu'
+                            component ={ Menu }
+                            options = {{headerShown: false}}
+                            initialParams = {{ logout: ()=> this.logout()}}
+                        />
+                        {}
+                        <Stack.Screen 
+                            name='Comentarios'
+                            component={ Comments }
+                        />
+                        {}
+                    </Stack.Group> 
+                    :
+                    <Stack.Group> 
+                        <Stack.Screen 
+                            name='Login'
+                            component = { Login }
+                            options = {{headerShown: false}}
+                            initialParams = {
+                                {   login: (mail, pass)=>this.login(mail, pass),
+                                }}
+                        />
+                        <Stack.Screen 
+                            name='Registro'
+                            options = {{headerShown: false}}
+                            initialParams = { {register: (mail, pass, userName)=>this.register(mail, pass, userName)}}
+                            children = {(navigationProps)=><Register errores={this.state.registerError} {...navigationProps}/>}
+                        />
+                    </Stack.Group>
+                }
+                </Stack.Navigator>
+</NavigationContainer>
         )
 
     }
