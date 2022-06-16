@@ -18,6 +18,11 @@ class Register extends Component{
         }
     }
 
+    componentDidMount(){
+        auth.onAuthStateChanged((user)=>{
+        })
+      }
+
     render(){
         console.log(this.state.email);
         console.log(this.state.password);

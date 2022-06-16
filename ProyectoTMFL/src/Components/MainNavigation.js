@@ -19,6 +19,16 @@ class MainNavigation extends Component {
         }
     }
 
+    componentDidMount(){
+        auth.onAuthStateChanged(user => {
+            if(user){
+                this.setState({loggedIn: true})
+            }
+        })
+    }
+
+    
+
 //funcionalidades arrancadas  
     login(mail, pass){
         auth.signInWithEmailAndPassword(mail, pass)
