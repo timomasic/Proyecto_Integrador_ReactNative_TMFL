@@ -7,7 +7,7 @@ import {
     Image,
 } from 'react-native';
 import {Camera} from 'expo-camera';
-import { db, storage } from '../firebase/config';
+import { db, storage } from '../Firebase/config';
 
 class MyCamera extends Component{
 

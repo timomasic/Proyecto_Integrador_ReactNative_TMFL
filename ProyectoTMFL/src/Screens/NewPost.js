@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
-import {auth, db} from '../firebase/config';
+import {auth, db} from '../Firebase/config';
 import MyCamera from '../components/myCamera';
 
 class NewPost extends Component{

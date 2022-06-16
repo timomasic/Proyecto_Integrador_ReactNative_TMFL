@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { db, auth } from '../firebase/config';
+import { db, auth } from '../Firebase/config';
 import { View,
          Text,
          TextInput,

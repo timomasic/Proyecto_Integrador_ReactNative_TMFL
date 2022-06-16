@@ -6,7 +6,7 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
-import {auth} from '../firebase/config';
+import {auth} from '../Firebase/config';
 
 class Register extends Component{
     constructor(props){
@@ -24,9 +24,6 @@ class Register extends Component{
       }
 
     render(){
-        console.log(this.state.email);
-        console.log(this.state.password);
-        console.log(this.props);
         return(
             <View style={styles.container}>
                 <Text style={styles.title}>Registro</Text>
