@@ -52,13 +52,11 @@ class Comments extends Component{
         return(
                 <View>
                     <Text> Comentarios</Text>
-                    <Text>{/* Renderizar la lista de comentarios del posteo */}</Text>
                     <FlatList 
                         data={this.state.comments}
                         keyExtractor={ post => post.createdAt}
                         renderItem = { ({item}) => <Text>{item.text}</Text> }
-                    />
-                    {/* Un formulario para cargar un comentario */}
+                    /> 
                     <TextInput 
                     style={styles.field}
                     keyboardType='default'
