@@ -51,22 +51,13 @@ class Post extends Component{
                 myLike: false
             }))
             .catch(error => console.log(error))
-            console.log(this.props.dataPost.data);
     }
 
-    
 
     render(){
         return(
                 <View style={styles.separator}>
-                    
-                    
                     <Text>Post de: {this.props.dataPost.data.owner}</Text>
-                    <Image 
-                    style={styles.image}
-                    source={require(`${this.props.dataPost.data.url}`)}
-                    resizeMode='contain'
-                    />
                     <Text>Texto del Post: {this.props.dataPost.data.description}</Text>
                      <Text>Cantidad de likes: {this.state.cantidadDeLikes}</Text>
                     {
@@ -95,9 +86,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         paddingHorizontal:20
     },
-    image:{
-        height: 400,
-    },
+    
 })
 
 export default Post;
