@@ -4,7 +4,8 @@ import {
     Text,
     TextInput,
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    Image
 } from 'react-native';
 import {auth, db} from '../Firebase/config';
 import firebase from 'firebase';
@@ -15,6 +16,9 @@ class Post extends Component{
         this.state={
            cantidadDeLikes:this.props.dataPost.data.likes.length,
            myLike:false,
+           deletedPostId: this.props.dataPost.data.id,
+           url: "",
+           id: "",
         }
     }
 
@@ -54,6 +58,13 @@ class Post extends Component{
             console.log(this.props.dataPost.data);
     }
 
+    deletePost(deletedPostId) {
+        const posteoActualizarEliminado = db
+          .collection("posts")
+          .doc(this.props.dataPost.id)
+          .delete();
+      }
+
     
 
     render(){
@@ -81,6 +92,14 @@ class Post extends Component{
                     <TouchableOpacity onPress={ () => this.props.navigation.navigate('Comentarios', { id: this.props.dataPost.id})} > 
                         <Text>Ver comentarios</Text>
                     </TouchableOpacity>   
+                    <TouchableOpacity
+            style={styles.closeModal}
+            onPress={() => {
+              this.deletePost(this.props.dataPost.data.id);
+            }}
+          >
+            <Ionicons name="trash" size="15px" color="red" />
+          </TouchableOpacity>
                     
                 </View>
         )
