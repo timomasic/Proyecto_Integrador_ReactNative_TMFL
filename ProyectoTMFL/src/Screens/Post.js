@@ -53,6 +53,12 @@ class Post extends Component{
             .catch(error => console.log(error))
     }
 
+    deletePost(deletedPostId) {
+        const posteoActualizarEliminado = db
+          .collection("posts")
+          .doc(this.props.dataPost.id)
+          .delete();
+    }
 
     render(){
         return(
@@ -72,7 +78,13 @@ class Post extends Component{
                     <TouchableOpacity onPress={ () => this.props.navigation.navigate('Comentarios', { id: this.props.dataPost.id})} > 
                         <Text>Ver comentarios</Text>
                     </TouchableOpacity>   
-                    
+                    <TouchableOpacity
+                        onPress={() => {
+                        this.deletePost(this.props.dataPost.data.id);
+                        }}
+                    >
+                    <Text>Borrar</Text>
+                    </TouchableOpacity>
                 </View>
         )
     }
