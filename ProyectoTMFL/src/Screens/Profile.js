@@ -67,7 +67,7 @@ class Profile extends Component{
         console.log(this.props);
         return(
                 <View>
-                    <Text> Mi Perfil</Text>
+                    <Text> Perfil</Text>
 
                     <Text>
                         {this.state.username}
