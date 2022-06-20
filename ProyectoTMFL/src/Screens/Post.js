@@ -64,6 +64,7 @@ class Post extends Component{
         return(
                 <View style={styles.separator}>
                     <Text>Post de: {this.props.dataPost.data.owner}</Text>
+                    <Image style={styles.image} source={{uri:this.props.dataPost.data.url}} resizeMode='contain'/>
                     <Text>Texto del Post: {this.props.dataPost.data.description}</Text>
                      <Text>Cantidad de likes: {this.state.cantidadDeLikes}</Text>
                     {
@@ -98,6 +99,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         paddingHorizontal:20
     },
+
+    image:{ 
+        width:100, 
+        height:100
+    }
+    
     
 })
 
