@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         marginBottom:20
     },
     field:{
-        borderColor: '#dcdcdc',
+        borderColor: 'black',
         borderWidth: 1,
         borderRadius: 2,
         padding:3,
