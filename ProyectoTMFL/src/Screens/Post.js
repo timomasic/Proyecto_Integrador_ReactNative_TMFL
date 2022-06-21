@@ -95,15 +95,23 @@ class Post extends Component{
 
 const styles = StyleSheet.create({
     separator:{
-        borderBottomColor: '#ddd',
-        borderBottomWidth: 1,
-        marginBottom: 10,
-        paddingHorizontal:20
+    backgroundColor: 'grey',
+    borderBottomColor: "black",
+    borderBottomWidth: 5,
+    borderTopColor: "black",
+    borderTopWidth: 5,
+    rowGap: 9,
+    alignItems: "center",
     },
 
     image:{ 
-        width:100, 
-        height:100
+        width:200, 
+        height:200,
+        borderRadius:12,
+    },
+
+    info:{ 
+        
     }
     
     

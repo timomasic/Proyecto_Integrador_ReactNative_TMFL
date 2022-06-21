@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Foundation } from '@expo/vector-icons'
-import Home from '../screens/Home';
+
+
+import Home from '../Screens/Home'
 import Profile from '../screens/Profile';
 import NewPost from '../screens/NewPost';
 import Search from '../screens/Search';
