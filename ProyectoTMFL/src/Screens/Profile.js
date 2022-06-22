@@ -103,8 +103,8 @@ class Profile extends Component{
                             renderItem={({ item }) => <Post dataPost={item} {...this.props} />}
                         />
                     ) : (
-                        <View style={styles.noFlatlist}>
-                            <Text style={styles.textBlack}>
+                        <View>
+                            <Text>
                                 No tenés niguna publicación.
                             </Text>
                         </View>
