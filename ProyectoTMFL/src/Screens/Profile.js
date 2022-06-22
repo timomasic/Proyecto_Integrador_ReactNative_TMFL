@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     StyleSheet,
     FlatList,
+    ScrollView
 } from 'react-native';
 import { db, auth } from '../Firebase/config';
 import Post from './Post';
@@ -66,12 +67,10 @@ class Profile extends Component{
     render(){
         console.log(this.props);
         return(
+            <ScrollView>
                 <View>
                     <Text> Perfil</Text>
 
-                    <Text>
-                        {this.state.username}
-                    </Text>
 
                     <Text>
                         <Text>
@@ -95,8 +94,10 @@ class Profile extends Component{
                         </Text>
                     </Text>
 
+
                     {this.state.posts.length > 0 ? (
                         <FlatList
+                            style={styles.separator}
                             data={this.state.posts}
                             style={styles.flatlist}
                             keyExtractor={(post) => post.id.toString()}
@@ -115,13 +116,22 @@ class Profile extends Component{
                     </TouchableOpacity>
                 
                 </View>
+            </ScrollView>
         )
     }
 
 }
 
 const styles = StyleSheet.create({
-    
+    separator:{
+        backgroundColor: 'grey',
+        borderBottomColor: "black",
+        borderBottomWidth: 5,
+        borderTopColor: "black",
+        borderTopWidth: 5,
+        rowGap: 9,
+        alignItems: "center",
+        },
 });
 
 export default Profile;
